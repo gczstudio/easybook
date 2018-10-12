@@ -1,0 +1,26 @@
+<div class="content w cl">
+  <div class="leftBox">
+    <%- include("navBar.html",{ NavBar }) %>
+    <%- include("topics.html",{ Topics }) %>
+    <%- include("article.html",{ Article, page }) %>
+  </div>
+  <div class="rightBox">
+    <%- include("sideBar.html",{ SideBar }) %>
+    <%- include("authors.html",{ Authors }) %>
+  </div>
+</div>
+<style>
+  .content{
+    padding-top: 30px;
+  }
+  .leftBox{
+    width: 625px;
+    height: 100px;
+    float: left;
+  }
+  .rightBox{
+    width: 280px;
+    height: 100px;
+    float: right;
+  }
+</style>

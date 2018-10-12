@@ -1,0 +1,99 @@
+<div class="authors">
+  <div class="qrcode">
+    <img src="//cdn2.jianshu.io/assets/web/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png" alt="">
+    <div class="cont">
+      <p class="f15">下载简书手机App<i class="iconfont">&#xe601;</i></p>
+      <p class=" f13 c2">随时随地发现和创作内容</p>
+    </div>
+  </div>
+  <div class="recommend">
+    <div class="r_header f14 c2 cl">
+      <div class="title">推荐作者</div>
+      <div><i class="iconfont">&#xe6d8;</i> 换一批</div>
+    </div>
+    <div class="list">
+      <ul>
+        <% Authors.forEach(item=>{ %>
+          <li class="cl">
+            <a href="" class="avatar fl"><img src="<%= item.avatar_source %>" alt=""></a>
+            <div class="fl author_info">
+              <a href="" class="f14"><%= item.nickname %></a>
+              <%
+                function formatNum(num){
+                  return num>1000?(num/1000).toFixed(1)+'k':num;
+                }
+              %>
+              <p class="c2">写了<%= formatNum(item.total_wordage) %>字 · <%= formatNum(item.total_likes_count) %>喜欢</p>
+            </div>
+            <a href="" class="f13 fr c4 add_plus"><i class="iconfont">&#xe602;</i>加关注</a>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+    <a href="#" class="find_more">查看全部<i class="iconfont">&#xe601;</i></a>
+  </div>
+</div>
+<style>
+  .authors .qrcode{
+    margin-bottom: 30px;
+    padding: 10px 22px;
+    width: 100%;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    background-color: #fff;
+  }
+  .authors .qrcode img{
+    width: 60px;
+    height: 60px;
+  }
+  .authors .qrcode .cont {
+    float: right;
+    margin-top: 5px;
+  }
+  .authors .recommend  .r_header>div{
+    float: right;
+  }
+  .authors .recommend  .r_header .title{
+    float: left;
+  }
+  .authors .avatar{
+    float: left;
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+  }
+  .authors .list li{
+    margin-top: 15px;
+  }
+  .authors .avatar img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 50%
+  }
+  .authors .list .author_info p{
+    line-height: 2;
+  }
+  .authors .add_plus{
+    line-height: 45px;
+  }
+  .authors .add_plus i {
+    font-size: 12px;
+    margin-right: 2px;
+    font-weight: bold;
+  }
+  .authors .find_more{
+    display: inline-block;
+    height: 40px;
+    line-height: 38px;
+    width: 100%;
+    font-size: 13px;
+    color: #787878;
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+</style>

@@ -1,0 +1,109 @@
+<div class="article">
+  <ul class="cont">
+    <% Article.forEach(item=>{ %>
+      <li class="cl">
+        <div class="cont_left <%= item.url?'has_img':''%>">
+            <a href="" class="title f18"><%= item.title %></a>
+            <div class="desc">
+              <%= item.des %>
+            </div>
+            <div class="meta">
+              <a href=""><%= item.author %></a>
+              <a href=""><i class="iconfont f14">&#xe603;</i> <%= item.discuss %></a>
+              <span><i class="iconfont f12">&#xe64e;</i> <%= item.point %></span>
+              <% if(item.money){ %>
+                <span><i class="iconfont f12">&#xe62e;</i> <%= item.money %></span>
+              <% } %>
+            </div>
+        </div>
+        <% if(item.url){%>
+        <div class="cont_right">
+          <img src="<%= item.url %>" alt="">
+        </div>
+        <% }%>
+      </li>
+    <% }) %>
+  </ul>
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      <li class="page-item <%= page.index-1<1? 'disabled':'' %>" >
+        <a class="page-link" href="./?index=<%= page.index -1 %>&size=5" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <%for(var i = 0; i< Math.ceil(page.Total/5); i++){%>
+        
+        <li class="page-item <%= page.index == i+1? 'active': ''%>"><a class="page-link" href="./?index=<%= (i+1) %>&size=5"><%= (i+1)%></a></li>
+      <%}%>
+      <%
+        var isEnd = page.index+1 >Math.ceil(page.Total/5);
+      %>
+      <li class="page-item <%= isEnd?'disabled':''%>">
+        <a class="page-link" href="./?index=<%= page.index+1 %>&size=5" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<style>
+  .article{
+    margin-top: 20px;
+  }
+  .article .cont{
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .article .cont>li{
+    border-top: 1px solid #f0f0f0;
+    padding: 30px 0;
+  }
+  .article .has_img{
+    float: left;
+    width: 483px;
+  }
+  .article .cont_right, .article .cont_right img{
+    float: right;
+    width: 125px;
+    height: 100px;
+    border-radius: 4px;
+  }
+  
+  .article .title{
+    margin: -7px 0 4px;
+    display: inherit;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .article .desc{
+    margin: 0 0 8px;
+    font-size: 13px;
+    line-height: 24px;
+    color: #999;
+  }
+  .article .desc img{
+    width: 125px;
+    height: 100px;
+    border-radius: 4px;
+    border: 1px solid #f0f0f0;
+  }
+  .article .meta a , .article .meta span{
+    margin-right: 10px;
+    color: #b4b4b4;
+  }
+  .article .meta span i{
+    font-size: 12px;
+  }
+  .article .page-link{
+    padding: 0.8rem 1.05rem;
+    font-size: 15px;
+    color: #333;
+  }
+  .article .pagination{
+    margin: 30px 0 50px;
+  }
+  .isEnd{
+    cursor: not-allowed;
+  }
+</style>

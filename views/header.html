@@ -1,0 +1,130 @@
+<div class="header">
+  <div class="header_center">
+    <a href="/" class="logo"><img src="//cdn2.jianshu.io/assets/web/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt=""></a>
+    <div class="center w cl">
+      <ul>
+        <li><a href="/" class="f17 c3">首页</a></li>
+        <li><a href="/" class="f17 c1">下载App</a></li>
+        <li>
+            <!-- <form action="/" method="POST">
+              <input type="text" name="search" class="search" placeholder="搜索">
+              <button class="iconfont search_icon" type="submit">&#xe7d4;</button>
+            </form> -->
+            <input type="text" name="search" class="search" placeholder="搜索">
+            <i class="iconfont search_icon" onclick="getSearch()">&#xe7d4;</i>
+        </li>
+      </ul>
+      <div class="mode">
+        <a class="c2" href="#"><i class="iconfont font_icon">&#xe636;</i></a>
+        <a class="c2 f15" href="#">登录</a>
+      </div>
+    </div>
+    <div class="handle">
+      <a href="#" class="login">注册</a>
+      <a href="#" class="write"><i class="iconfont">&#xe600;</i>写文章</a>
+    </div>
+  </div>
+</div>
+<script>
+  function getSearch(){
+    $.post('/getSearch',{
+      search: $('.search').val()
+    },function(data){
+      console.log(data);
+    })
+  }
+</script>
+<style>
+  .header{
+    margin: 0 auto;
+    height: 58px;
+    line-height: 57px;
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+  }
+  .header_center{
+    /* min-width: 768px; */
+    width: 1440px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .logo{
+    float: left;
+  }
+  .logo img{
+    width: 100px;
+    height: 56px;
+  }
+  .center{
+    height:  100%;
+    margin: 0 auto;
+  }
+  .header ul{
+
+    width: 500px;
+    height: 100%;
+  }
+  .header ul>li{
+    float: left;
+    margin-right: 20px;
+  }
+  .search{
+    outline-style: none;
+    padding: 0 40px 0 20px;
+    width: 160px;
+    height: 38px;
+    font-size: 14px;
+    border: 1px solid #eee;
+    border-radius: 40px;
+    background: #eee;
+  }
+  .search_icon{
+    position: relative;
+    top: 3px;
+    right: 27px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+  }
+  .mode{
+    float: right;
+  }
+  .mode a{
+    padding: 0 10px;
+  }
+  .font_icon{
+    font-size: 24px;
+  }
+  .handle{
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .handle a{
+    border-radius: 20px;
+  }
+  .login{
+    padding: 10px 20px;
+    width: 80px;
+    height: 38px;
+    line-height: 24px;
+    margin: 9px 5px 0 15px;
+    border: 1px solid rgba(236,97,73,.7);
+    font-size: 15px;
+    color: #ea6f5a;
+    background-color: transparent;
+  }
+  .write{
+    padding: 10px 15px;
+    width: 100px;
+    height: 40px;
+    line-height: 24px;
+    margin: 8px 15px 0;
+    font-size: 15px;
+    color: #fff;
+    background-color: #ea6f5a;
+  }
+</style>

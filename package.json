@@ -1,0 +1,28 @@
+{
+  "name": "easy-book",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "hotnode ./bin/www"
+  },
+  "dependencies": {
+    "async": "^2.6.1",
+    "bootstrap": "^4.1.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-ejs-layouts": "^2.4.0",
+    "hotnode": "0.0.8",
+    "http-errors": "~1.6.2",
+    "jquery": "^3.3.1",
+    "loader": "^2.1.1",
+    "loader-connect": "^1.0.1",
+    "lodash": "^4.17.10",
+    "log4js": "^3.0.1",
+    "mongoose": "^5.2.4",
+    "morgan": "~1.9.0",
+    "path": "^0.12.7",
+    "popper.js": "^1.14.3"
+  }
+}

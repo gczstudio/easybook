@@ -1,0 +1,49 @@
+<div class="topics">
+  <ul class="cl">
+    <% Topics.forEach(item=>{ %>
+      <li>
+        <a href="">
+          <img src="<%= item.url %>" alt="">
+          <span class="f14"><%= item.name %></span>
+        </a>
+      </li>
+    <% }) %>
+    <li class="more c2">更多热门专题<i class="iconfont">&#xe601;</i></li>
+  </ul>
+</div>
+<style>
+  .topics{
+    margin: 35px 0 20px;
+  }
+  .topics ul{
+    width: 100%;
+  }
+  .topics ul>li{
+    float: left;
+  }
+  .topics ul>li a{
+    color: #333;
+    display: inline-block;
+    margin:0 18px 18px 0 ;
+    min-height: 32px;
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    vertical-align: top;
+    overflow: hidden;
+  }
+  .topics ul>li img{
+    width: 32px;
+    height: 32px;
+  } 
+  .topics ul>li span{
+    display: inline-block;
+    padding: 0 11px 0 6px;
+  }
+  .topics .more{
+    line-height: 32px;
+  }
+  .topics .more i{
+    vertical-align: top;
+  }
+</style>
